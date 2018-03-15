@@ -1,0 +1,46 @@
+inherit kf5
+
+NAME="kf5-akonadi-contacts"
+VERSION=17.12.3
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Akonadi contact library"
+DESCRIPTION="Akonadi Contacts is a library that effectively bridges the type-
+agnostic API of the Akonadi client libraries and the domain-specific KContacts
+library. It provides jobs, models and other helpers to make working with
+contacts and addressbooks through Akonadi easier."
+
+PKG_NAMES="libKF5AkonadiContacts5 libKF5AkonadiContacts-devel libKF5ContactEditor5 libKF5ContactEditor-devel"
+libKF5AkonadiContacts5_CONTENTS="
+	usr/bin/cygKF5AkonadiContact-5.dll
+	usr/lib/qt5/plugins/akonadi/contacts/
+	usr/lib/qt5/plugins/kcm_akonadicontact_actions.dll
+	usr/share/doc/${NAME}
+	usr/share/kf5/akonadi/contact/data/zone.tab
+	usr/share/kf5/akonadi/contact/pics/world.jpg
+	usr/share/kservices5/akonadi/contact/
+	usr/share/kservices5/akonadicontact_actions.desktop
+	usr/share/kservicetypes5/kaddressbookimprotocol.desktop
+	usr/share/locale/*/LC_MESSAGES/akonadicontact5.mo
+	usr/share/locale/*/LC_MESSAGES/kcm_akonadicontact_actions.mo
+"
+libKF5AkonadiContacts_devel_REQUIRES="libKF5Akonadi-devel libKF5Contacts-devel libQt5Gui-devel"
+libKF5AkonadiContacts_devel_CONTENTS="
+	usr/include/KF5/[Aa]konadi/[Cc]ontact/
+	usr/lib/cmake/KF5AkonadiContact/
+	usr/lib/libKF5AkonadiContact.dll.a
+	usr/lib/qt5/mkspecs/modules/qt_AkonadiContact.pri
+"
+libKF5ContactEditor5_SUMMARY="KDE contact editor library"
+libKF5ContactEditor5_CONTENTS="
+	etc/xdg/contact-editor.categories
+	usr/bin/cygKF5ContactEditor-5.dll
+"
+libKF5ContactEditor_devel_SUMMARY=${libKF5ContactEditor5_SUMMARY}
+libKF5ContactEditor_devel_REQUIRES="libKF5Contacts-devel libQt5Gui-devel"
+libKF5ContactEditor_devel_CONTENTS="
+	usr/include/KF5/[Cc]ontact[Ee]ditor/
+	usr/lib/cmake/KF5ContactEditor/
+	usr/lib/libKF5ContactEditor.dll.a
+	usr/lib/qt5/mkspecs/modules/qt_ContactEditor.pri
+"
